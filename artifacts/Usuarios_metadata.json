@@ -1,0 +1,347 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "cuenta",
+						"type": "address"
+					}
+				],
+				"name": "GuiaEliminado",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "cuenta",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "nombre",
+						"type": "string"
+					}
+				],
+				"name": "GuiaRegistrado",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "turista",
+						"type": "address"
+					}
+				],
+				"name": "TuristaEliminado",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "cuenta",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "nombre",
+						"type": "string"
+					}
+				],
+				"name": "TuristaRegistrado",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "duenno",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					}
+				],
+				"name": "eliminarGuiaTurista",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "mensaje",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					}
+				],
+				"name": "eliminarTurista",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "mensaje",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_nombre",
+						"type": "string"
+					}
+				],
+				"name": "registrarGuiaTurista",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "mensaje",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_nombre",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_edad",
+						"type": "uint8"
+					}
+				],
+				"name": "registrarTurista",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "mensaje",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					}
+				],
+				"name": "verGuia",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "cuenta",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "nombre",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "activo",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "verGuias",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "cuenta",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nombreCompleto",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Usuarios.GuiaTuristas[]",
+						"name": "resultado",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					}
+				],
+				"name": "verTurista",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "cuenta",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "nombre",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "edad",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "activo",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "verTuristas",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "cuenta",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nombreCompleto",
+								"type": "string"
+							},
+							{
+								"internalType": "uint8",
+								"name": "edad",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Usuarios.Turista[]",
+						"name": "resultado",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Usuarios.sol": "Usuarios"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Usuarios.sol": {
+			"keccak256": "0xba2982d41a5573700b7ac33a0c42287f339d7335e4338e9ba88a7c29f009892f",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://3f53364fb1cb72d9bca02d49eb915d524847efd71969ebf082149668a0fcf595",
+				"dweb:/ipfs/QmUrMQvL8DiPt3GPWpkaCcFkbewSSFSQyGmvT5x2bA7PSd"
+			]
+		}
+	},
+	"version": 1
+}

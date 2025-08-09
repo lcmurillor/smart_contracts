@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity ^0.8.30;
+pragma solidity ^0.8.0;
 
 //Este contrato se encarga de gestionar los atrigutos (variables) y métidos (funciones)
 //básicos de los 2 tipos de usuarios requeridos en DApp Guanacaste Tours: Turistas y Guías.

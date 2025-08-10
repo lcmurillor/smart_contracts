@@ -5,7 +5,7 @@ pragma solidity ^0.8.0;
 //básicos de los 2 tipos de usuarios requeridos en DApp Guanacaste Tours: Turistas y Guías.
 contract Usuarios {
     //Un Objeto de tipo GuiaTuristas con sus variables básicas.
-    struct GuiaTuristas {
+     struct  GuiaTuristas {
         address cuenta;
         string nombreCompleto;
         bool estado;
@@ -23,16 +23,16 @@ contract Usuarios {
 
     //Listas  de turistas y guias (Esto es para itereación y listas
     //ya que en solidity no se puede recorrer un mapping).
-    address[] private listaGuias;
-    address[] private listaTuristas;
+    GuiaTuristas[] public listaGuias;
+    Turista[] public listaTuristas;
 
     constructor() {
         duenno = msg.sender;
     }
 
     //Arreglos (listas) de los 2 tipos de usuarios.
-    mapping(address => GuiaTuristas) private guiasRegistrados;
-    mapping(address => Turista) private turistasRegistrados;
+    mapping(address => GuiaTuristas) public guiasRegistrados;
+    mapping(address => Turista) public turistasRegistrados;
 
     //Valida que solo el dueño haga cambios.
     modifier soloDuenno() {
@@ -61,8 +61,9 @@ contract Usuarios {
             !guiasRegistrados[_cuenta].estado,
             "Guia de Turistas ya esta registrado"
         );
-        guiasRegistrados[_cuenta] = GuiaTuristas(_cuenta, _nombre, true);
-        listaGuias.push(_cuenta);
+        GuiaTuristas memory _guiaTuristas = GuiaTuristas(_cuenta, _nombre, true);
+        guiasRegistrados[_cuenta] = _guiaTuristas;
+        listaGuias.push(_guiaTuristas);
         emit GuiaRegistrado(_cuenta, _nombre);
         return "Guia de Turistas registrado con exito";
     }
@@ -76,8 +77,9 @@ contract Usuarios {
             !turistasRegistrados[_cuenta].estado,
             "Turista ya esta registrado"
         );
-        turistasRegistrados[_cuenta] = Turista(_cuenta, _nombre, _edad, true);
-        listaTuristas.push(_cuenta);
+        Turista memory _turista =  Turista(_cuenta, _nombre, _edad, true);
+        turistasRegistrados[_cuenta] = _turista;
+        listaTuristas.push(_turista);
         emit TuristaRegistrado(_cuenta, _nombre);
         return "Turista registrado con exito";
     }
@@ -122,7 +124,7 @@ contract Usuarios {
     {
         resultado = new GuiaTuristas[](listaGuias.length);
         for (uint256 i = 0; i < listaGuias.length; i++) {
-            resultado[i] = guiasRegistrados[listaGuias[i]];
+            resultado[i] = guiasRegistrados[listaGuias[i].cuenta];
         }
         return resultado;
     }
@@ -135,7 +137,7 @@ contract Usuarios {
     {
         resultado = new Turista[](listaTuristas.length);
         for (uint256 i = 0; i < listaTuristas.length; i++) {
-            resultado[i] = turistasRegistrados[listaTuristas[i]];
+            resultado[i] = turistasRegistrados[listaTuristas[i].cuenta];
         }
         return resultado;
     }
@@ -149,7 +151,7 @@ contract Usuarios {
         guiasRegistrados[_cuenta].estado = false;
         emit GuiaEliminado(_cuenta);
         for (uint256 i = 0; i < listaGuias.length; i++) {
-            if (listaGuias[i] == _cuenta) {
+            if (listaGuias[i].cuenta == _cuenta) {
                 //Se hace un intercambio de la posición actual con la última del arreglo
                 //y luego se elimina el último elemento del arreglo.
                 listaGuias[i] = listaGuias[listaGuias.length - 1];
@@ -169,7 +171,7 @@ contract Usuarios {
         turistasRegistrados[_cuenta].estado = false;
         emit TuristaEliminado(_cuenta);
           for (uint256 i = 0; i < listaTuristas.length; i++) {
-            if (listaTuristas[i] == _cuenta) {
+            if (listaTuristas[i].cuenta == _cuenta) {
                 //Se hace un intercambio de la posición actual con la última del arreglo
                 //y luego se elimina el último elemento del arreglo.
                 listaTuristas[i] = listaTuristas[listaTuristas.length - 1];

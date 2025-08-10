@@ -1,0 +1,331 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_usuariosContrato",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "nombre",
+						"type": "string"
+					}
+				],
+				"name": "LugarEliminado",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "nombre",
+						"type": "string"
+					}
+				],
+				"name": "LugarRegistrado",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "duenno",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nombre",
+						"type": "string"
+					}
+				],
+				"name": "eliminarLugar",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "mensaje",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "listaLugares",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "nombre",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "precio",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "cupos",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "guiaTuristas",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "estado",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					}
+				],
+				"name": "obtenerGuia",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "cuenta",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nombreCompleto",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Usuarios.GuiaTuristas",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nombre",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_precio",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_cupos",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_guiaTuristas",
+						"type": "address"
+					}
+				],
+				"name": "registrarLugar",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "mensaje",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "usuariosContrato",
+				"outputs": [
+					{
+						"internalType": "contract Usuarios",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nombre",
+						"type": "string"
+					}
+				],
+				"name": "verLugar",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "nombre",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "precio",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "cupos",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "guiaTuristas",
+								"type": "address"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Lugares.Lugar",
+						"name": "lugar",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "verLugares",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "nombre",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "precio",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "cupos",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "guiaTuristas",
+								"type": "address"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Lugares.Lugar[]",
+						"name": "resultado",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Lugares.sol": "Lugares"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Lugares.sol": {
+			"keccak256": "0xc61077aa30bcc2a6a4f9b66e8f33502b48f438f33f134ab526dd12b7ce4090f8",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://96c5c2372ae1e487795da242e23a536fff0502529000d641518a8d66b5647c72",
+				"dweb:/ipfs/QmT9Rm6SM4upoggGZA5VmxfMYCAyp8dr1yLo8UJReGntXK"
+			]
+		},
+		"contracts/Usuarios.sol": {
+			"keccak256": "0x1db10a08b1e8a176ffe0256f3689aa48092eaac49ab267515b9a178083e9e0f6",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://569b880b75b403adc33c259e066de3f011bc917b399a44f50475d1ea86688aaf",
+				"dweb:/ipfs/QmdgyiQsmtBvPKB4CcZ8AeaVwNJvZC1YtuTV42W4GZMgjS"
+			]
+		}
+	},
+	"version": 1
+}

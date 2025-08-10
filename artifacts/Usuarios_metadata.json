@@ -129,6 +129,98 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "guiasRegistrados",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "cuenta",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "nombreCompleto",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "estado",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "listaGuias",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "cuenta",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "nombreCompleto",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "estado",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "listaTuristas",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "cuenta",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "nombreCompleto",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "edad",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "estado",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "_cuenta",
 						"type": "address"
 					},
@@ -176,6 +268,40 @@
 					}
 				],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "turistasRegistrados",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "cuenta",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "nombreCompleto",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "edad",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "estado",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -335,11 +461,11 @@
 	},
 	"sources": {
 		"contracts/Usuarios.sol": {
-			"keccak256": "0x7400df3ccd291cbdee1c966ec2acd9967f4af2b450ff32698ca124cafdc1d43d",
+			"keccak256": "0xa63c9998ccb2ff7646d03414622d60c719df13e54ef70a19050b368282043af1",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://27e62d537ca30d2ca1250c9d7bcbb8c935a76c0f5d1ec481c51b733c14805905",
-				"dweb:/ipfs/QmXaBQBzDNGDvsuq9b2w7ZzKa22CZdfoGXgSevpcRD13h7"
+				"bzz-raw://c48ca1479fb9dc8627d75c06631b087684eb707649de47193ee97a570702883e",
+				"dweb:/ipfs/QmbB9pKfidjKcRwbibSZrS3YwVXuXGCoEKh5Sa8fZ2befe"
 			]
 		}
 	},

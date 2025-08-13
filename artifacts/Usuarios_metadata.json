@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
@@ -315,19 +315,26 @@
 				"name": "verGuia",
 				"outputs": [
 					{
-						"internalType": "address",
-						"name": "cuenta",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "nombre",
-						"type": "string"
-					},
-					{
-						"internalType": "bool",
-						"name": "activo",
-						"type": "bool"
+						"components": [
+							{
+								"internalType": "address",
+								"name": "cuenta",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nombreCompleto",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Usuarios.GuiaTuristas",
+						"name": "",
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -448,7 +455,7 @@
 		"compilationTarget": {
 			"contracts/Usuarios.sol": "Usuarios"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -461,11 +468,11 @@
 	},
 	"sources": {
 		"contracts/Usuarios.sol": {
-			"keccak256": "0xa63c9998ccb2ff7646d03414622d60c719df13e54ef70a19050b368282043af1",
+			"keccak256": "0xbecb8379133bd5178d127184a6b47a52305762b0703acddf71e80db4abf8f3e3",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://c48ca1479fb9dc8627d75c06631b087684eb707649de47193ee97a570702883e",
-				"dweb:/ipfs/QmbB9pKfidjKcRwbibSZrS3YwVXuXGCoEKh5Sa8fZ2befe"
+				"bzz-raw://cc8c77397d36f7a4bcf7c458a8c46ede579a8833ecd7de265bc4d16553a0cb84",
+				"dweb:/ipfs/QmQjm4hgViepAfHTPX51oGRnyfLeG75hmrnCuVxkFExFFN"
 			]
 		}
 	},

@@ -7,41 +7,32 @@ import "./Usuarios.sol";
 //Este contrato se encarga de gestionar los atrigutos (variables) y métidos (funciones)
 //básicos de los lugares requeridos en DApp Guanacaste Tours: Turistas y Guías.
 contract Lugares {
-    //Dueño de la agencia de turismo.
-    address public duenno;
+
+    
+    //Esto permite hacer referencia a la totalidad del contrato
+    //Se hace una instancia del contrato "Usuarios" dentro de este contrato.
     Usuarios public usuariosContrato;
 
-    function obtenerGuia(address _cuenta)
-        public
-        view
-        returns (Usuarios.GuiaTuristas memory)
-    {
-        (
-            address cuenta,
-            string memory nombreCompleto,
-            bool estado
-        ) = usuariosContrato.guiasRegistrados(_cuenta);
-        Usuarios.GuiaTuristas memory guia = Usuarios.GuiaTuristas(
-            cuenta,
-            nombreCompleto,
-            estado
-        );
-        return guia;
-    }
+    //Dueño de la agencia de turismo.
+    address public duenno;
 
     struct Lugar {
         string nombre;
-        uint256 precio;
-        uint256 cupos;
-        address guiaTuristas;
+        uint precio;
+        uint cupos;
+        address guiaTurustas;
         bool estado;
     }
 
     Lugar[] public listaLugares;
 
+
+    //Dentro del constructor realizamos la iniciación del Contrato relacionado con los usuarios
+    //y se le asigna una dirreción al contrato. (es un address que hace referencia al contrato
+    //en su totalidad, con confundir con la dirreción del dueño, un guía a turista).
     constructor(address _usuariosContrato) {
-        duenno = msg.sender;
         usuariosContrato = Usuarios(_usuariosContrato);
+        duenno = msg.sender;
     }
 
     //Valida que solo el dueño haga cambios.
@@ -53,6 +44,11 @@ contract Lugares {
         _;
     }
 
+
+    function obtenerGuia(address _cuenta) public  view  returns (Usuarios.GuiaTuristas memory){
+        return usuariosContrato.verGuia(_cuenta);
+    }
+
     //Valida que solo los gúias de turistas puedan hacer cambios.
     modifier soloGuias() {
         require(
@@ -62,12 +58,14 @@ contract Lugares {
         _;
     }
 
+    //ContratoA.Registro memory reg = contratoA.obtenerRegistro(index);
+
     function registrarLugar(
         string memory _nombre,
-        uint256 _precio,
-        uint256 _cupos,
+        uint _precio,
+        uint _cupos,
         address _guiaTuristas
-    ) public soloDuenno returns (string memory mensaje) {
+    ) public soloDuenno returns (string memory) {
         for (uint256 i = 0; i < listaLugares.length; i++) {
             //keccak256(abi.encodePacked(string)) lo que hace es presear los tipos de datos
             //ya que en esta compración un es un String Storage y el otro String memory y da error.

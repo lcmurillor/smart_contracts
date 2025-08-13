@@ -88,13 +88,11 @@ contract Usuarios {
         public
         view
         returns (
-            address cuenta,
-            string memory nombre,
-            bool activo
+           GuiaTuristas memory
         )
     {
         GuiaTuristas memory _guia = guiasRegistrados[_cuenta];
-        return (_guia.cuenta, _guia.nombreCompleto, _guia.estado);
+        return (_guia);
     }
 
     function verTurista(address _cuenta)

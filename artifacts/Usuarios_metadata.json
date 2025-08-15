@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -91,44 +91,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_cuenta",
-						"type": "address"
-					}
-				],
-				"name": "eliminarGuiaTurista",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "mensaje",
-						"type": "string"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_cuenta",
-						"type": "address"
-					}
-				],
-				"name": "eliminarTurista",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "mensaje",
-						"type": "string"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "",
 						"type": "address"
 					}
@@ -144,69 +106,6 @@
 						"internalType": "string",
 						"name": "nombreCompleto",
 						"type": "string"
-					},
-					{
-						"internalType": "bool",
-						"name": "estado",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "listaGuias",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "cuenta",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "nombreCompleto",
-						"type": "string"
-					},
-					{
-						"internalType": "bool",
-						"name": "estado",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "listaTuristas",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "cuenta",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "nombreCompleto",
-						"type": "string"
-					},
-					{
-						"internalType": "uint8",
-						"name": "edad",
-						"type": "uint8"
 					},
 					{
 						"internalType": "bool",
@@ -341,36 +240,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "verGuias",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "address",
-								"name": "cuenta",
-								"type": "address"
-							},
-							{
-								"internalType": "string",
-								"name": "nombreCompleto",
-								"type": "string"
-							},
-							{
-								"internalType": "bool",
-								"name": "estado",
-								"type": "bool"
-							}
-						],
-						"internalType": "struct Usuarios.GuiaTuristas[]",
-						"name": "resultado",
-						"type": "tuple[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -403,41 +272,6 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "verTuristas",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "address",
-								"name": "cuenta",
-								"type": "address"
-							},
-							{
-								"internalType": "string",
-								"name": "nombreCompleto",
-								"type": "string"
-							},
-							{
-								"internalType": "uint8",
-								"name": "edad",
-								"type": "uint8"
-							},
-							{
-								"internalType": "bool",
-								"name": "estado",
-								"type": "bool"
-							}
-						],
-						"internalType": "struct Usuarios.Turista[]",
-						"name": "resultado",
-						"type": "tuple[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -455,7 +289,7 @@
 		"compilationTarget": {
 			"contracts/Usuarios.sol": "Usuarios"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -468,11 +302,11 @@
 	},
 	"sources": {
 		"contracts/Usuarios.sol": {
-			"keccak256": "0xbecb8379133bd5178d127184a6b47a52305762b0703acddf71e80db4abf8f3e3",
+			"keccak256": "0xc7af87b953a5cff0db167127c50ca811188f8a8293409c457945a4879012efa0",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://cc8c77397d36f7a4bcf7c458a8c46ede579a8833ecd7de265bc4d16553a0cb84",
-				"dweb:/ipfs/QmQjm4hgViepAfHTPX51oGRnyfLeG75hmrnCuVxkFExFFN"
+				"bzz-raw://d91849b4e34b4bc638257ccef52f5c270af77bb96c5751e54baa6d6ac8122693",
+				"dweb:/ipfs/QmVPF6YmT1BuPg7hxTRdiEH7C4poRN4SjGZdS27oGY2JMR"
 			]
 		}
 	},

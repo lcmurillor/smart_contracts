@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -298,7 +298,7 @@
 		"compilationTarget": {
 			"contracts/Lugares.sol": "Lugares"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -319,11 +319,11 @@
 			]
 		},
 		"contracts/Usuarios.sol": {
-			"keccak256": "0xbecb8379133bd5178d127184a6b47a52305762b0703acddf71e80db4abf8f3e3",
+			"keccak256": "0xc7af87b953a5cff0db167127c50ca811188f8a8293409c457945a4879012efa0",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://cc8c77397d36f7a4bcf7c458a8c46ede579a8833ecd7de265bc4d16553a0cb84",
-				"dweb:/ipfs/QmQjm4hgViepAfHTPX51oGRnyfLeG75hmrnCuVxkFExFFN"
+				"bzz-raw://d91849b4e34b4bc638257ccef52f5c270af77bb96c5751e54baa6d6ac8122693",
+				"dweb:/ipfs/QmVPF6YmT1BuPg7hxTRdiEH7C4poRN4SjGZdS27oGY2JMR"
 			]
 		}
 	},

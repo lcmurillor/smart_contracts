@@ -23,8 +23,8 @@ contract Usuarios {
 
     //Listas  de turistas y guias (Esto es para itereación y listas
     //ya que en solidity no se puede recorrer un mapping).
-    GuiaTuristas[] public listaGuias;
-    Turista[] public listaTuristas;
+    address[] public guiaTuristas;
+    address[] public turistas;
 
     constructor() {
         duenno = msg.sender;

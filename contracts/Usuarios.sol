@@ -92,10 +92,10 @@ contract Usuarios {
     function verGuia(address _cuenta)
         public
         view
-        returns (GuiaTuristas memory)
+        returns (string memory)
     {
-        require(guiasRegistrados[_cuenta].estado == false, "Guia no existe");
-        return guiasRegistrados[_cuenta];
+        require(guiasRegistrados[_cuenta].estado, "Guia no existe");
+        return guiasRegistrados[_cuenta].nombreCompleto;
     }
 
     function verTurista(address _cuenta) public view returns (Turista memory) {
@@ -151,10 +151,7 @@ contract Usuarios {
         emit GuiaEliminado(_cuenta);
     }
 
-    function eliminarTurista(address _cuenta)
-        public
-        soloGuias
-    {
+    function eliminarTurista(address _cuenta) public soloGuias {
         //Si el estado del  Tusitas es inactivo (estado = False), entonces ya está eliminado.
         require(turistasRegistrados[_cuenta].estado, "Turista no existe");
         turistasRegistrados[_cuenta].estado = false;

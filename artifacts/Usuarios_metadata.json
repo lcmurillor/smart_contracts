@@ -253,26 +253,9 @@
 				"name": "verGuia",
 				"outputs": [
 					{
-						"components": [
-							{
-								"internalType": "address",
-								"name": "cuenta",
-								"type": "address"
-							},
-							{
-								"internalType": "string",
-								"name": "nombreCompleto",
-								"type": "string"
-							},
-							{
-								"internalType": "bool",
-								"name": "estado",
-								"type": "bool"
-							}
-						],
-						"internalType": "struct Usuarios.GuiaTuristas",
+						"internalType": "string",
 						"name": "",
-						"type": "tuple"
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -413,11 +396,11 @@
 	},
 	"sources": {
 		"contracts/Usuarios.sol": {
-			"keccak256": "0x4f6ad4fee20f9268d70f0ce6278948ba9f12b6360ff47466f74c301aaed1a9ae",
+			"keccak256": "0xe65ac3d28b27af3892e190ed3db855ee9ec84e902d6839fbb9df48019d9ee29b",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://23075dde31d3b5a39943f4327376090f28c4e96ba90346ebd5e7a24f29b05e16",
-				"dweb:/ipfs/QmUDHJJhib5R8h7sUf8wDfaRecZGV2uQt3Yxd6ewK1F7zE"
+				"bzz-raw://4d10eb5ebbbb3e69b88e452fef4f27bc0ce63e22875b0a7802c217fbbf3b79d6",
+				"dweb:/ipfs/QmVZ9JnXqXBLdrX4bLw15yDY1d2aRjhFnTNVdSeQ1Ze6RR"
 			]
 		}
 	},

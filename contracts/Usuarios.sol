@@ -21,7 +21,7 @@ contract Usuarios {
     //Dueño de la agencia de turismo.
     address public duenno;
 
-    //Listas  de turistas y guias (Esto es para itereación y listas
+    //Listas  de direcciones de turistas y guias (Esto es para itereación y listas
     //ya que en solidity no se puede recorrer un mapping).
     address[] public guiaTuristas;
     address[] public turistas;

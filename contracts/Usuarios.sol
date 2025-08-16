@@ -4,8 +4,20 @@ pragma solidity ^0.8.0;
 //Este contrato se encarga de gestionar los atrigutos (variables) y métidos (funciones)
 //básicos de los 2 tipos de usuarios requeridos en DApp Guanacaste Tours: Turistas y Guías.
 contract Usuarios {
+    //Dueño de la agencia de turismo.
+    address private duenno;
+
+    //Listas  de direcciones de turistas y guias (Esto es para itereación y listas
+    //ya que en solidity no se puede recorrer un mapping).
+    address[] public listaGuiaTuristas;
+    address[] public listaTuristas;
+
+    //Arreglos (listas) de los 2 tipos de usuarios.
+    mapping(address => GuiaTuristas) public guiasRegistrados;
+    mapping(address => Turista) public turistasRegistrados;
+
     //Un Objeto de tipo GuiaTuristas con sus variables básicas.
-     struct  GuiaTuristas {
+    struct GuiaTuristas {
         address cuenta;
         string nombreCompleto;
         bool estado;
@@ -14,25 +26,21 @@ contract Usuarios {
     struct Turista {
         address cuenta;
         string nombreCompleto;
+        //uint8 que va de 0 a 255
         uint8 edad;
         bool estado;
     }
 
-    //Dueño de la agencia de turismo.
-    address public duenno;
-
-    //Listas  de direcciones de turistas y guias (Esto es para itereación y listas
-    //ya que en solidity no se puede recorrer un mapping).
-    address[] public guiaTuristas;
-    address[] public turistas;
+    //Estos son los registros de eventos (son como auditirias) que se registran cuando se hacen
+    //cambos significativos en los registros.
+    event GuiaRegistrado(address cuenta, string nombre);
+    event GuiaEliminado(address cuenta);
+    event TuristaRegistrado(address cuenta, string nombre);
+    event TuristaEliminado(address turista);
 
     constructor() {
         duenno = msg.sender;
     }
-
-    //Arreglos (listas) de los 2 tipos de usuarios.
-    mapping(address => GuiaTuristas) public guiasRegistrados;
-    mapping(address => Turista) public turistasRegistrados;
 
     //Valida que solo el dueño haga cambios.
     modifier soloDuenno() {
@@ -55,78 +63,70 @@ contract Usuarios {
     function registrarGuiaTurista(address _cuenta, string memory _nombre)
         public
         soloDuenno
-        returns (string memory mensaje)
     {
         require(
             !guiasRegistrados[_cuenta].estado,
             "Guia de Turistas ya esta registrado"
         );
-        GuiaTuristas memory _guiaTuristas = GuiaTuristas(_cuenta, _nombre, true);
-        guiasRegistrados[_cuenta] = _guiaTuristas;
-        listaGuias.push(_guiaTuristas);
+        guiasRegistrados[_cuenta] = GuiaTuristas(_cuenta, _nombre, true);
+        //La función de guardar en esta lista es solo para poder hacer iteraciones en las funciones tipo view.
+        listaGuiaTuristas.push(_cuenta);
         emit GuiaRegistrado(_cuenta, _nombre);
-        return "Guia de Turistas registrado con exito";
     }
 
     function registrarTurista(
         address _cuenta,
         string memory _nombre,
         uint8 _edad
-    ) public soloGuias returns (string memory mensaje) {
+    ) public soloGuias {
         require(
             !turistasRegistrados[_cuenta].estado,
             "Turista ya esta registrado"
         );
-        Turista memory _turista =  Turista(_cuenta, _nombre, _edad, true);
-        turistasRegistrados[_cuenta] = _turista;
-        listaTuristas.push(_turista);
+        turistasRegistrados[_cuenta] = Turista(_cuenta, _nombre, _edad, true);
+        //La función de guardar en esta lista es solo para poder hacer iteraciones en las funciones tipo view.
+        listaTuristas.push(_cuenta);
         emit TuristaRegistrado(_cuenta, _nombre);
-        return "Turista registrado con exito";
     }
 
     function verGuia(address _cuenta)
         public
         view
-        returns (
-           GuiaTuristas memory
-        )
+        returns (GuiaTuristas memory)
     {
-        GuiaTuristas memory _guia = guiasRegistrados[_cuenta];
-        return (_guia);
+        require(guiasRegistrados[_cuenta].estado == false, "Guia no existe");
+        return guiasRegistrados[_cuenta];
     }
 
-    function verTurista(address _cuenta)
-        public
-        view
-        returns (
-            address cuenta,
-            string memory nombre,
-            uint8 edad,
-            bool activo
-        )
-    {
-        Turista memory _turista = turistasRegistrados[_cuenta];
-        return (
-            _turista.cuenta,
-            _turista.nombreCompleto,
-            _turista.edad,
-            _turista.estado
-        );
+    function verTurista(address _cuenta) public view returns (Turista memory) {
+        require(turistasRegistrados[_cuenta].estado, "Turista no existe");
+        return turistasRegistrados[_cuenta];
     }
 
+    //En esta función se retorna una lista de objetos tipo GuiaTuristas.
     function verGuias()
         public
         view
         soloDuenno
-        returns (GuiaTuristas[] memory resultado)
+        returns (GuiaTuristas[] memory _resultado)
     {
-        resultado = new GuiaTuristas[](listaGuias.length);
-        for (uint256 i = 0; i < listaGuias.length; i++) {
-            resultado[i] = guiasRegistrados[listaGuias[i].cuenta];
+        //Se crea un arreglo de objetos tipo GuiaTuristas con el tamaño de la lista de guias.
+        _resultado = new GuiaTuristas[](listaGuiaTuristas.length);
+        //Se recorre la listaGuiaTuristas para obtener los address y con ellos obtener el resto de la información
+        //de cada guia en el mapping guiasRegistrados.
+        for (uint8 i = 0; i < listaGuiaTuristas.length; i++) {
+            //Solo se agregan a la lista los guias que estén activos (estado = true).
+            if (guiasRegistrados[listaGuiaTuristas[i]].estado) {
+                _resultado[i] = guiasRegistrados[listaGuiaTuristas[i]];
+            } else {
+                //Si el Guia de turistas no está activo se disminuye el contador para que no quede un espacio vacío en el arreglo.
+                i--;
+            }
         }
-        return resultado;
+        return _resultado;
     }
 
+    //No le agrego documentación porque es igual a la función anterior
     function verTuristas()
         public
         view
@@ -134,56 +134,30 @@ contract Usuarios {
         returns (Turista[] memory resultado)
     {
         resultado = new Turista[](listaTuristas.length);
-        for (uint256 i = 0; i < listaTuristas.length; i++) {
-            resultado[i] = turistasRegistrados[listaTuristas[i].cuenta];
+        for (uint16 i = 0; i < listaTuristas.length; i++) {
+            if (turistasRegistrados[listaTuristas[i]].estado) {
+                resultado[i] = turistasRegistrados[listaTuristas[i]];
+            } else {
+                i--;
+            }
         }
         return resultado;
     }
 
-    function eliminarGuiaTurista(address _cuenta)
-        public
-        soloDuenno
-        returns (string memory mensaje)
-    {
+    function eliminarGuiaTurista(address _cuenta) public soloDuenno {
+        //Si el estado del Guia de Tusitas es inactivo (estado = False), entonces ya está eliminado.
         require(guiasRegistrados[_cuenta].estado, "Guia no existe");
         guiasRegistrados[_cuenta].estado = false;
         emit GuiaEliminado(_cuenta);
-        for (uint256 i = 0; i < listaGuias.length; i++) {
-            if (listaGuias[i].cuenta == _cuenta) {
-                //Se hace un intercambio de la posición actual con la última del arreglo
-                //y luego se elimina el último elemento del arreglo.
-                listaGuias[i] = listaGuias[listaGuias.length - 1];
-                listaGuias.pop();
-                break;
-            }
-        }
-        return "Guia de Turistas eliminado con exito";
     }
 
     function eliminarTurista(address _cuenta)
         public
         soloGuias
-        returns (string memory mensaje)
     {
+        //Si el estado del  Tusitas es inactivo (estado = False), entonces ya está eliminado.
         require(turistasRegistrados[_cuenta].estado, "Turista no existe");
         turistasRegistrados[_cuenta].estado = false;
         emit TuristaEliminado(_cuenta);
-          for (uint256 i = 0; i < listaTuristas.length; i++) {
-            if (listaTuristas[i].cuenta == _cuenta) {
-                //Se hace un intercambio de la posición actual con la última del arreglo
-                //y luego se elimina el último elemento del arreglo.
-                listaTuristas[i] = listaTuristas[listaTuristas.length - 1];
-                listaTuristas.pop();
-                break;
-            }
-        }
-        return "Turista eliminado con exito";
     }
-
-    //Estos son los registros de eventos (son como auditirias) que se registran cuando se hacen
-    //cambos significativos en los registros.
-    event GuiaRegistrado(address cuenta, string nombre);
-    event GuiaEliminado(address cuenta);
-    event TuristaRegistrado(address cuenta, string nombre);
-    event TuristaEliminado(address turista);
 }

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 //Este contrato se encarga de gestionar los atrigutos (variables) y métidos (funciones)
@@ -9,12 +9,12 @@ contract Usuarios {
 
     //Listas  de direcciones de turistas y guias (Esto es para itereación y listas
     //ya que en solidity no se puede recorrer un mapping).
-    address[] public listaGuiaTuristas;
-    address[] public listaTuristas;
+    address[] private listaGuiaTuristas;
+    address[] private listaTuristas;
 
     //Arreglos (listas) de los 2 tipos de usuarios.
-    mapping(address => GuiaTuristas) public guiasRegistrados;
-    mapping(address => Turista) public turistasRegistrados;
+    mapping(address => GuiaTuristas) private guiasRegistrados;
+    mapping(address => Turista) private turistasRegistrados;
 
     //Un Objeto de tipo GuiaTuristas con sus variables básicas.
     struct GuiaTuristas {
@@ -114,13 +114,12 @@ contract Usuarios {
         _resultado = new GuiaTuristas[](listaGuiaTuristas.length);
         //Se recorre la listaGuiaTuristas para obtener los address y con ellos obtener el resto de la información
         //de cada guia en el mapping guiasRegistrados.
+        uint8 _constador = 0;
         for (uint8 i = 0; i < listaGuiaTuristas.length; i++) {
             //Solo se agregan a la lista los guias que estén activos (estado = true).
             if (guiasRegistrados[listaGuiaTuristas[i]].estado) {
-                _resultado[i] = guiasRegistrados[listaGuiaTuristas[i]];
-            } else {
-                //Si el Guia de turistas no está activo se disminuye el contador para que no quede un espacio vacío en el arreglo.
-                i--;
+                _resultado[_constador] = guiasRegistrados[listaGuiaTuristas[i]];
+                _constador ++;
             }
         }
         return _resultado;

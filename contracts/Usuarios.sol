@@ -89,13 +89,9 @@ contract Usuarios {
         emit TuristaRegistrado(_cuenta, _nombre);
     }
 
-    function verGuia(address _cuenta)
-        public
-        view
-        returns (string memory)
-    {
+    function verGuia(address _cuenta) public view returns (GuiaTuristas memory) {
         require(guiasRegistrados[_cuenta].estado, "Guia no existe");
-        return guiasRegistrados[_cuenta].nombreCompleto;
+        return guiasRegistrados[_cuenta];
     }
 
     function verTurista(address _cuenta) public view returns (Turista memory) {
@@ -110,8 +106,15 @@ contract Usuarios {
         soloDuenno
         returns (GuiaTuristas[] memory _resultado)
     {
+        //Contamos la coantidad de guias activos
+        uint8 _totalActivos = 0;
+        for (uint8 i = 0; i < listaGuiaTuristas.length; i++) {
+            guiasRegistrados[listaGuiaTuristas[i]].estado
+                ? _totalActivos++
+                : _totalActivos;
+        }
         //Se crea un arreglo de objetos tipo GuiaTuristas con el tamaño de la lista de guias.
-        _resultado = new GuiaTuristas[](listaGuiaTuristas.length);
+        _resultado = new GuiaTuristas[](_totalActivos);
         //Se recorre la listaGuiaTuristas para obtener los address y con ellos obtener el resto de la información
         //de cada guia en el mapping guiasRegistrados.
         uint8 _constador = 0;
@@ -119,7 +122,7 @@ contract Usuarios {
             //Solo se agregan a la lista los guias que estén activos (estado = true).
             if (guiasRegistrados[listaGuiaTuristas[i]].estado) {
                 _resultado[_constador] = guiasRegistrados[listaGuiaTuristas[i]];
-                _constador ++;
+                _constador++;
             }
         }
         return _resultado;
@@ -130,17 +133,26 @@ contract Usuarios {
         public
         view
         soloGuias
-        returns (Turista[] memory resultado)
+        returns (Turista[] memory _resultado)
     {
-        resultado = new Turista[](listaTuristas.length);
+        uint16 _totalActivos = 0;
         for (uint16 i = 0; i < listaTuristas.length; i++) {
+            turistasRegistrados[listaTuristas[i]].estado
+                ? _totalActivos++
+                : _totalActivos;
+        }
+
+        _resultado = new Turista[](_totalActivos);
+        uint16 _constador = 0;
+        for (uint16 i = 0; i < listaTuristas.length; i++) {
+            //Solo se agregan a la lista los guias que estén activos (estado = true).
             if (turistasRegistrados[listaTuristas[i]].estado) {
-                resultado[i] = turistasRegistrados[listaTuristas[i]];
-            } else {
-                i--;
+                _resultado[_constador] = turistasRegistrados[listaTuristas[i]];
+                _constador++;
             }
         }
-        return resultado;
+
+        return _resultado;
     }
 
     function eliminarGuiaTurista(address _cuenta) public soloDuenno {

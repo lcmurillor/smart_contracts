@@ -152,9 +152,26 @@
 				"name": "verGuia",
 				"outputs": [
 					{
-						"internalType": "string",
+						"components": [
+							{
+								"internalType": "address",
+								"name": "cuenta",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nombreCompleto",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Usuarios.GuiaTuristas",
 						"name": "",
-						"type": "string"
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -259,7 +276,7 @@
 							}
 						],
 						"internalType": "struct Usuarios.Turista[]",
-						"name": "resultado",
+						"name": "_resultado",
 						"type": "tuple[]"
 					}
 				],
@@ -295,11 +312,11 @@
 	},
 	"sources": {
 		"contracts/Usuarios.sol": {
-			"keccak256": "0xa45c1eafea9af0483c3d4b3da3dcde9bb75f13304d58d78d73af9ae36e4ea6f3",
+			"keccak256": "0x25fc1668a24c5e2e4428438487a02d302f9a48b08c92115fffc6b8bc1fcf6319",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f099ef721c7d69dae2f37fc1e19708082ccff795ffc4880d0441ac522f582925",
-				"dweb:/ipfs/QmcZF8D8YKw4K3kiKnbcrBiv5Yd2vQibfnJDtWJpKt6vbr"
+				"bzz-raw://256f1d6abd5b00abe14b3fa68a955fe2acd20c934e8fb3cecd7a8ec8b483690d",
+				"dweb:/ipfs/Qmd2NK3EZ5J1v1tKhQKGpCUqswJ28QyawQX5GDSQ4vrfNY"
 			]
 		}
 	},

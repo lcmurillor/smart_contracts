@@ -51,13 +51,7 @@
 					}
 				],
 				"name": "eliminarLugar",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "mensaje",
-						"type": "string"
-					}
-				],
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -259,11 +253,11 @@
 	},
 	"sources": {
 		"contracts/Lugares.sol": {
-			"keccak256": "0x7952ac8d2f0b503a6f5311406aaf6154e379c9e93c9d436127d35c877d397751",
+			"keccak256": "0xebf8645186d3dbd73430f7674804be465fa3803a343e5e4bd08d134ea4afc876",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0c35f443e3d6e4e41f3083d53f1c515e3daecc12004769ae9473a8ef886d0130",
-				"dweb:/ipfs/QmUYfMNTdTvV3PKw3X8rBf7GQNZwDxQXDJjX9UHYTQenqy"
+				"bzz-raw://43a15406bf73f91a4c6ba5c6fdc0b90b5997b1a11f036c9a86ebbadfa7b93073",
+				"dweb:/ipfs/QmT13RTueSRWYFpHL15PfQ5AfGHrQwVg3fCbKWMamvdju6"
 			]
 		},
 		"contracts/Usuarios.sol": {

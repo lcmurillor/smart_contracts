@@ -52,8 +52,8 @@ contract Lugares {
         _;
     }
 
-//Hace un llamado al contrato de usuarios y se trae al dueño ya que es uno solo
-//para todo el sistema. 
+    //Hace un llamado al contrato de usuarios y se trae al dueño ya que es uno solo
+    //para todo el sistema.
     function obtenerDuenno() public view returns (address) {
         return usuariosContrato.verDuenno();
     }
@@ -85,9 +85,8 @@ contract Lugares {
             _guiaTuristas != address(0),
             "Debe tener un guia de turistas asociado"
         );
-        //Amenta el contador global de la cantidad de lugares y procede a agregar 
+        //Amenta el contador global de la cantidad de lugares y procede a agregar
         //un lugar en el mapping asignando el indice como clave.
-        contadorLugares++;
         lugares[contadorLugares] = Lugar(
             _nombre,
             _precio,
@@ -95,7 +94,7 @@ contract Lugares {
             _guiaTuristas,
             true
         );
-
+        contadorLugares++;
         emit LugarRegistrado(_nombre);
         return "Guia de Turistas registrado con exito";
     }
@@ -109,11 +108,13 @@ contract Lugares {
         Lugar memory _lugar;
         for (uint8 i = 0; i < contadorLugares; i++) {
             //Se hace uso de la función keccak256 para hacer una comparación de cadenas.
-            //Esto porque el resulatado del mapping es un string Storage y el del parámetro 
+            //Esto porque el resulatado del mapping es un string Storage y el del parámetro
             //un string memory y es necesario parsear para que sean de un formato similar
             //y poder ser comparados.
-            if ( keccak256(abi.encodePacked(lugares[i].nombre)) ==
-            keccak256(abi.encodePacked(_nombre))) {
+            if (
+                keccak256(abi.encodePacked(lugares[i].nombre)) ==
+                keccak256(abi.encodePacked(_nombre))
+            ) {
                 _lugar = lugares[i];
             }
         }
@@ -123,36 +124,33 @@ contract Lugares {
     function verLugares() public view returns (Lugar[] memory _resultado) {
         //A la hora de ver lo lugares, se espera solo mostrar los lugares registrados
         //en estado activos (Estado = true). Así que lo que hacemos es contar la cantidad
-        //de lugares activos para saber el tamaño del arrego que debemos mostrar. 
+        //de lugares activos para saber el tamaño del arrego que debemos mostrar.
         uint8 _totalActivos = 0;
         for (uint8 i = 0; i < contadorLugares; i++) {
             lugares[i].estado ? _totalActivos++ : _totalActivos;
         }
         //Una vez definido el arreglo, recorremos el mapping y a este le asignamos solo
-        //los lugares con activos (Estado = true). 
+        //los lugares con activos (Estado = true).
         _resultado = new Lugar[](_totalActivos);
-          uint8 _contador = 0;
+        uint8 _contador = 0;
         for (uint8 i = 0; i < contadorLugares; i++) {
             if (lugares[i].estado) {
                 _resultado[_contador] = lugares[i];
-                _contador ++;
+                _contador++;
             }
         }
         return _resultado;
     }
 
-    function eliminarLugar(string memory _nombre)
-        public
-        soloDuenno
-        returns (string memory mensaje)
-    {
+    function eliminarLugar(string memory _nombre) public soloDuenno {
         for (uint8 i = 0; i < contadorLugares; i++) {
-           if ( keccak256(abi.encodePacked(lugares[i].nombre)) ==
-            keccak256(abi.encodePacked(_nombre))) {
+            if (
+                keccak256(abi.encodePacked(lugares[i].nombre)) ==
+                keccak256(abi.encodePacked(_nombre))
+            ) {
                 lugares[i].estado = false;
                 emit LugarEliminado(_nombre);
             }
         }
-        return "Lugar eliminado con exito";
     }
 }

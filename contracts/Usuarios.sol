@@ -5,7 +5,7 @@ pragma solidity ^0.8.0;
 //básicos de los 2 tipos de usuarios requeridos en DApp Guanacaste Tours: Turistas y Guías.
 contract Usuarios {
     //Dueño de la agencia de turismo.
-    address private duenno;
+    address private immutable duenno;
 
     //Listas  de direcciones de turistas y guias (Esto es para itereación y listas
     //ya que en solidity no se puede recorrer un mapping).
@@ -87,6 +87,10 @@ contract Usuarios {
         //La función de guardar en esta lista es solo para poder hacer iteraciones en las funciones tipo view.
         listaTuristas.push(_cuenta);
         emit TuristaRegistrado(_cuenta, _nombre);
+    }
+
+    function verDuenno() public view returns (address) {
+        return duenno;
     }
 
     function verGuia(address _cuenta) public view returns (GuiaTuristas memory) {

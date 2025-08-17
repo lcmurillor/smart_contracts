@@ -43,19 +43,6 @@
 				"type": "event"
 			},
 			{
-				"inputs": [],
-				"name": "duenno",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -75,39 +62,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "listaLugares",
+				"inputs": [],
+				"name": "obtenerDuenno",
 				"outputs": [
 					{
-						"internalType": "string",
-						"name": "nombre",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "precio",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "cupos",
-						"type": "uint256"
-					},
-					{
 						"internalType": "address",
-						"name": "guiaTurustas",
+						"name": "",
 						"type": "address"
-					},
-					{
-						"internalType": "bool",
-						"name": "estado",
-						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -157,14 +118,14 @@
 						"type": "string"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "uint16",
 						"name": "_precio",
-						"type": "uint256"
+						"type": "uint16"
 					},
 					{
-						"internalType": "uint256",
+						"internalType": "uint8",
 						"name": "_cupos",
-						"type": "uint256"
+						"type": "uint8"
 					},
 					{
 						"internalType": "address",
@@ -181,19 +142,6 @@
 					}
 				],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "usuariosContrato",
-				"outputs": [
-					{
-						"internalType": "contract Usuarios",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -214,18 +162,18 @@
 								"type": "string"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "uint16",
 								"name": "precio",
-								"type": "uint256"
+								"type": "uint16"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "uint8",
 								"name": "cupos",
-								"type": "uint256"
+								"type": "uint8"
 							},
 							{
 								"internalType": "address",
-								"name": "guiaTurustas",
+								"name": "guiaTuristas",
 								"type": "address"
 							},
 							{
@@ -235,7 +183,7 @@
 							}
 						],
 						"internalType": "struct Lugares.Lugar",
-						"name": "lugar",
+						"name": "",
 						"type": "tuple"
 					}
 				],
@@ -254,18 +202,18 @@
 								"type": "string"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "uint16",
 								"name": "precio",
-								"type": "uint256"
+								"type": "uint16"
 							},
 							{
-								"internalType": "uint256",
+								"internalType": "uint8",
 								"name": "cupos",
-								"type": "uint256"
+								"type": "uint8"
 							},
 							{
 								"internalType": "address",
-								"name": "guiaTurustas",
+								"name": "guiaTuristas",
 								"type": "address"
 							},
 							{
@@ -275,7 +223,7 @@
 							}
 						],
 						"internalType": "struct Lugares.Lugar[]",
-						"name": "resultado",
+						"name": "_resultado",
 						"type": "tuple[]"
 					}
 				],
@@ -311,19 +259,19 @@
 	},
 	"sources": {
 		"contracts/Lugares.sol": {
-			"keccak256": "0xc2dd99d81c4376e34f24b53c1246dfaca662c2cc5db9ec638c23a375652528e3",
-			"license": "GPL-3.0",
+			"keccak256": "0x7952ac8d2f0b503a6f5311406aaf6154e379c9e93c9d436127d35c877d397751",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://971ff870b3d4858088714147dd85a15d82f57aec644e6c86ad5ed01b20bf4efa",
-				"dweb:/ipfs/QmPYjrN74Z9QmtH1ebpKxzPwmQYSLjXVT4xWJKDFfsEmeY"
+				"bzz-raw://0c35f443e3d6e4e41f3083d53f1c515e3daecc12004769ae9473a8ef886d0130",
+				"dweb:/ipfs/QmUYfMNTdTvV3PKw3X8rBf7GQNZwDxQXDJjX9UHYTQenqy"
 			]
 		},
 		"contracts/Usuarios.sol": {
-			"keccak256": "0xc7af87b953a5cff0db167127c50ca811188f8a8293409c457945a4879012efa0",
-			"license": "GPL-3.0",
+			"keccak256": "0xaf900e4e1fd1e8a2b1292940a8fe6cdaf4a08a4a3e78231902d204fc26ff9cdc",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://d91849b4e34b4bc638257ccef52f5c270af77bb96c5751e54baa6d6ac8122693",
-				"dweb:/ipfs/QmVPF6YmT1BuPg7hxTRdiEH7C4poRN4SjGZdS27oGY2JMR"
+				"bzz-raw://1470e966b5fa19f1d98199155f5f414010e3ea78a5f8076f632dd6efe16a138e",
+				"dweb:/ipfs/QmU8wf9ppvQDseSgZkYBLfGStsdXKyy2M9kfrJgA4wQvWG"
 			]
 		}
 	},

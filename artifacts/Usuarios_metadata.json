@@ -142,6 +142,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "verDuenno",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -312,11 +325,11 @@
 	},
 	"sources": {
 		"contracts/Usuarios.sol": {
-			"keccak256": "0x25fc1668a24c5e2e4428438487a02d302f9a48b08c92115fffc6b8bc1fcf6319",
+			"keccak256": "0xaf900e4e1fd1e8a2b1292940a8fe6cdaf4a08a4a3e78231902d204fc26ff9cdc",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://256f1d6abd5b00abe14b3fa68a955fe2acd20c934e8fb3cecd7a8ec8b483690d",
-				"dweb:/ipfs/Qmd2NK3EZ5J1v1tKhQKGpCUqswJ28QyawQX5GDSQ4vrfNY"
+				"bzz-raw://1470e966b5fa19f1d98199155f5f414010e3ea78a5f8076f632dd6efe16a138e",
+				"dweb:/ipfs/QmU8wf9ppvQDseSgZkYBLfGStsdXKyy2M9kfrJgA4wQvWG"
 			]
 		}
 	},

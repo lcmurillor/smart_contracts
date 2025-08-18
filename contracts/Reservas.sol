@@ -12,7 +12,7 @@ contract Reservas {
     Lugares private lugaresContrato;
 
     mapping(uint256 => Reserva) private reservas;
-    uint8 private contadorReservas;
+    uint256 private contadorReservas;
 
     struct Reserva {
         string nombreLugar;
@@ -113,20 +113,23 @@ contract Reservas {
         Usuarios.Turista memory _turista = obtenerTurista(msg.sender);
         Lugares.Lugar memory _lugar = obtenerLugar(_reserva.nombreLugar);
         require(_reserva.estado, "Esta reserva no se encuentra activa");
-        require(_reserva.cuposDisponibles > 0, "Esta reserva no se encuentra activa");
+        require(
+            _reserva.cuposDisponibles > 0,
+            "Esta reserva no se encuentra activa"
+        );
         require(_turista.estado, "Este turista no se encuentra activo");
         require(_lugar.estado, "Este lugar no se encuentra activo");
         require(msg.value == _lugar.precio, "El monto es incorrecto");
 
-         reservas[_idReserva].totalCobrado += msg.value;
-         reservas[_idReserva].cuposDisponibles --;
+        reservas[_idReserva].totalCobrado += msg.value;
+        reservas[_idReserva].cuposDisponibles--;
 
         payable(obtenerDuenno()).transfer(msg.value);
 
         emit pagarRegistrada(_idReserva, _turista.nombreCompleto, msg.value);
     }
 
-    function verReservas() public  view returns (Reserva[] memory)  {
+    function verReservas() public view returns (Reserva[] memory) {
         Reserva[] memory _reservas = new Reserva[](contadorReservas);
         for (uint256 i = 0; i < contadorReservas; i++) {
             _reservas[i] = reservas[i];
@@ -134,12 +137,17 @@ contract Reservas {
         return _reservas;
     }
 
-    function verReserva(uint256 _idReserva) public view returns (Reserva memory) {
+    function verReserva(uint256 _idReserva)
+        public
+        view
+        returns (Reserva memory)
+    {
         return reservas[_idReserva];
     }
+
     function eliminarReserva(uint256 _idReserva) public {
         require(reservas[_idReserva].estado, "Esta reseva no existe");
         reservas[_idReserva].estado = false;
-        emit eliminarRegistrada(_idReserva, reservas[_idReserva].nombreLugar); 
+        emit eliminarRegistrada(_idReserva, reservas[_idReserva].nombreLugar);
     }
 }

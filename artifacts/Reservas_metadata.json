@@ -397,11 +397,11 @@
 			]
 		},
 		"contracts/Reservas.sol": {
-			"keccak256": "0x474b10758d967178c967e1048b79ae643b4bdfb6331efd1a36d22b0065c28542",
+			"keccak256": "0x1e7f53574c64f3a1b6199de0139937a0cc3510c9a3f730c6e453a2214ff71e31",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0c8f93ee491fbc048221a2442207c6d13554b3cf30929910e545e82bbde23e5c",
-				"dweb:/ipfs/Qme9VwqyCyKNQpapC5czXkTp9audox5RCGYYZoWpxZj8rs"
+				"bzz-raw://34de2351576cd77668992997d4f5baee45bec661c66a9dbd9f73f034f99493e3",
+				"dweb:/ipfs/QmY2pofMpNZgg63L9oqNyVXamQUcR8JCdKiKbkk9KopvSv"
 			]
 		},
 		"contracts/Usuarios.sol": {

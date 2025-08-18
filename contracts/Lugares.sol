@@ -16,7 +16,7 @@ contract Lugares {
 
     struct Lugar {
         string nombre;
-        uint16 precio;
+        uint256 precio;
         uint8 cupos;
         address guiaTuristas;
         bool estado;
@@ -68,10 +68,10 @@ contract Lugares {
 
     function registrarLugar(
         string memory _nombre,
-        uint16 _precio,
+        uint256 _precio,
         uint8 _cupos,
         address _guiaTuristas
-    ) public soloDuenno returns (string memory) {
+    ) public soloDuenno {
         //Realiza las validaciones para confirmar que se cumplen los requerimientos
         //antes de ingresar un nuevo lugar.
         require(
@@ -96,7 +96,6 @@ contract Lugares {
         );
         contadorLugares++;
         emit LugarRegistrado(_nombre);
-        return "Guia de Turistas registrado con exito";
     }
 
     function verLugar(string memory _nombre)

@@ -1,0 +1,404 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_usuariosContrato",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_lugaresContrato",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "nombreLugar",
+						"type": "string"
+					}
+				],
+				"name": "eliminarRegistrada",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "nombreTursita",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "monto",
+						"type": "uint256"
+					}
+				],
+				"name": "pagarRegistrada",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "nombreLugar",
+						"type": "string"
+					}
+				],
+				"name": "reservaRegistrada",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_idReserva",
+						"type": "uint256"
+					}
+				],
+				"name": "asignarTuristas",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "obtenerDuenno",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					}
+				],
+				"name": "obtenerGuia",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "cuenta",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nombreCompleto",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Usuarios.GuiaTuristas",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nombreLugar",
+						"type": "string"
+					}
+				],
+				"name": "obtenerLugar",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "nombre",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "precio",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "cupos",
+								"type": "uint8"
+							},
+							{
+								"internalType": "address",
+								"name": "guiaTuristas",
+								"type": "address"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Lugares.Lugar",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					}
+				],
+				"name": "obtenerTurista",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "cuenta",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nombreCompleto",
+								"type": "string"
+							},
+							{
+								"internalType": "uint8",
+								"name": "edad",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Usuarios.Turista",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nombreLugar",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_guiaTuristas",
+						"type": "address"
+					}
+				],
+				"name": "registrarReservas",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "verReservas",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "nombreLugar",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalCobrado",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "cuposDisponibles",
+								"type": "uint8"
+							},
+							{
+								"internalType": "address",
+								"name": "guiaTuristas",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "fecha",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Reservas.Reserva[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_idReserva",
+						"type": "uint256"
+					}
+				],
+				"name": "verSererva",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "nombreLugar",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalCobrado",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "cuposDisponibles",
+								"type": "uint8"
+							},
+							{
+								"internalType": "address",
+								"name": "guiaTuristas",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "fecha",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Reservas.Reserva",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Reservas.sol": "Reservas"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Lugares.sol": {
+			"keccak256": "0xd621a7ecf325a9b1b56dcbf96e24d3e76cc03f43b06507a8b71beba306cdf13d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://31c198a18c53935da72bbe521b96885cb1f853e729934937d62475bbc566c16e",
+				"dweb:/ipfs/QmfU8gvWzGZY3i9S3dTeA6gZjC3zttVdJw9CfU7vekEFzx"
+			]
+		},
+		"contracts/Reservas.sol": {
+			"keccak256": "0x80c45dff32c7be151b38a5d93744b10ade8d4d08b029c2be212db791cf252f98",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://32099fe54b98547f5a7d8a6075c18590bcc09d93a77f19a74194411d586056c0",
+				"dweb:/ipfs/QmWzS7b83BGTxb4okh4yjYBWhEem9Et8avGQDA9GW93n6z"
+			]
+		},
+		"contracts/Usuarios.sol": {
+			"keccak256": "0xaf900e4e1fd1e8a2b1292940a8fe6cdaf4a08a4a3e78231902d204fc26ff9cdc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1470e966b5fa19f1d98199155f5f414010e3ea78a5f8076f632dd6efe16a138e",
+				"dweb:/ipfs/QmU8wf9ppvQDseSgZkYBLfGStsdXKyy2M9kfrJgA4wQvWG"
+			]
+		}
+	},
+	"version": 1
+}

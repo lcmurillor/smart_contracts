@@ -24,8 +24,8 @@ contract Reservas {
     }
 
     event reservaRegistrada(uint256 id, string nombreLugar);
-    event eliminarRegistrada(uint256 id, string nombreLugar);
-    event pagarRegistrada(uint256 id, string nombreTursita, uint256 monto);
+    event reservaEliminada(uint256 id, string nombreLugar);
+    event pagarReserva(uint256 id, string nombreTursita, uint256 monto);
 
     constructor(address _usuariosContrato, address _lugaresContrato) {
         usuariosContrato = Usuarios(_usuariosContrato);
@@ -126,7 +126,7 @@ contract Reservas {
 
         payable(obtenerDuenno()).transfer(msg.value);
 
-        emit pagarRegistrada(_idReserva, _turista.nombreCompleto, msg.value);
+        emit pagarReserva(_idReserva, _turista.nombreCompleto, msg.value);
     }
 
     function verReservas() public view returns (Reserva[] memory) {
@@ -148,6 +148,6 @@ contract Reservas {
     function eliminarReserva(uint256 _idReserva) public {
         require(reservas[_idReserva].estado, "Esta reseva no existe");
         reservas[_idReserva].estado = false;
-        emit eliminarRegistrada(_idReserva, reservas[_idReserva].nombreLugar);
+        emit reservaEliminada(_idReserva, reservas[_idReserva].nombreLugar);
     }
 }

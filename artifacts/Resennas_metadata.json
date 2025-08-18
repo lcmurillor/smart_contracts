@@ -1,0 +1,385 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_usuariosContrato",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_lugaresContrato",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "nombreLugar",
+						"type": "string"
+					}
+				],
+				"name": "ResennaEliminada",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "nombreLugar",
+						"type": "string"
+					}
+				],
+				"name": "ResennaRegistrada",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_idResenna",
+						"type": "uint256"
+					}
+				],
+				"name": "eliminarResenna",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "obtenerDuenno",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					}
+				],
+				"name": "obtenerGuia",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "cuenta",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nombreCompleto",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Usuarios.GuiaTuristas",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nombreLugar",
+						"type": "string"
+					}
+				],
+				"name": "obtenerLugar",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "nombre",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "precio",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "cupos",
+								"type": "uint8"
+							},
+							{
+								"internalType": "address",
+								"name": "guiaTuristas",
+								"type": "address"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Lugares.Lugar",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					}
+				],
+				"name": "obtenerTurista",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "cuenta",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nombreCompleto",
+								"type": "string"
+							},
+							{
+								"internalType": "uint8",
+								"name": "edad",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Usuarios.Turista",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nombreLugar",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_turista",
+						"type": "address"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_puntaje",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "_comentario",
+						"type": "string"
+					}
+				],
+				"name": "registrarResenna",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_idResenna",
+						"type": "uint256"
+					}
+				],
+				"name": "verResernnaPorID",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "nombreLugar",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "turista",
+								"type": "address"
+							},
+							{
+								"internalType": "uint8",
+								"name": "puntaje",
+								"type": "uint8"
+							},
+							{
+								"internalType": "string",
+								"name": "comentario",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Resennas.Resenna",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nombreLugar",
+						"type": "string"
+					}
+				],
+				"name": "verResernnasPorNombreLugar",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "nombreLugar",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "turista",
+								"type": "address"
+							},
+							{
+								"internalType": "uint8",
+								"name": "puntaje",
+								"type": "uint8"
+							},
+							{
+								"internalType": "string",
+								"name": "comentario",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Resennas.Resenna[]",
+						"name": "_resultado",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Resennas.sol": "Resennas"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Lugares.sol": {
+			"keccak256": "0xd621a7ecf325a9b1b56dcbf96e24d3e76cc03f43b06507a8b71beba306cdf13d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://31c198a18c53935da72bbe521b96885cb1f853e729934937d62475bbc566c16e",
+				"dweb:/ipfs/QmfU8gvWzGZY3i9S3dTeA6gZjC3zttVdJw9CfU7vekEFzx"
+			]
+		},
+		"contracts/Resennas.sol": {
+			"keccak256": "0xe9f282c5a895e0e2331fee4a9364831d52fa1315e7a9b6ea42e130d516722450",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b4d00a419e157d5fd012f9c36d8c0c108112a209927e01570473268311ec7aae",
+				"dweb:/ipfs/QmNLnjw4KcEs4Szohi2x2Twk72rHXUNrZp3YmmuLwSHxyg"
+			]
+		},
+		"contracts/Usuarios.sol": {
+			"keccak256": "0xaf900e4e1fd1e8a2b1292940a8fe6cdaf4a08a4a3e78231902d204fc26ff9cdc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1470e966b5fa19f1d98199155f5f414010e3ea78a5f8076f632dd6efe16a138e",
+				"dweb:/ipfs/QmU8wf9ppvQDseSgZkYBLfGStsdXKyy2M9kfrJgA4wQvWG"
+			]
+		}
+	},
+	"version": 1
+}

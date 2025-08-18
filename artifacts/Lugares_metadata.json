@@ -112,9 +112,9 @@
 						"type": "string"
 					},
 					{
-						"internalType": "uint16",
+						"internalType": "uint256",
 						"name": "_precio",
-						"type": "uint16"
+						"type": "uint256"
 					},
 					{
 						"internalType": "uint8",
@@ -150,9 +150,9 @@
 								"type": "string"
 							},
 							{
-								"internalType": "uint16",
+								"internalType": "uint256",
 								"name": "precio",
-								"type": "uint16"
+								"type": "uint256"
 							},
 							{
 								"internalType": "uint8",
@@ -190,9 +190,9 @@
 								"type": "string"
 							},
 							{
-								"internalType": "uint16",
+								"internalType": "uint256",
 								"name": "precio",
-								"type": "uint16"
+								"type": "uint256"
 							},
 							{
 								"internalType": "uint8",
@@ -247,11 +247,11 @@
 	},
 	"sources": {
 		"contracts/Lugares.sol": {
-			"keccak256": "0x2fa344730f47107b829f67163f861143ebf76cd83d986c0bc7d66c1747428862",
+			"keccak256": "0xd621a7ecf325a9b1b56dcbf96e24d3e76cc03f43b06507a8b71beba306cdf13d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://df384f3ea4c3c2d2e5c75a7efc57e6af7996e197a29e890b4b3ff09dce291b1c",
-				"dweb:/ipfs/QmeJVrs5w4hTF4UoMTdrVrGwJ5XVeJRAeAHZmw638tUQgh"
+				"bzz-raw://31c198a18c53935da72bbe521b96885cb1f853e729934937d62475bbc566c16e",
+				"dweb:/ipfs/QmfU8gvWzGZY3i9S3dTeA6gZjC3zttVdJw9CfU7vekEFzx"
 			]
 		},
 		"contracts/Usuarios.sol": {

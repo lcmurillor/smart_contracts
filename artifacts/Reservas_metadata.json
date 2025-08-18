@@ -98,6 +98,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_idReserva",
+						"type": "uint256"
+					}
+				],
+				"name": "eliminarReserva",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "obtenerDuenno",
 				"outputs": [
@@ -252,6 +265,57 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_idReserva",
+						"type": "uint256"
+					}
+				],
+				"name": "verReserva",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "nombreLugar",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalCobrado",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "cuposDisponibles",
+								"type": "uint8"
+							},
+							{
+								"internalType": "address",
+								"name": "guiaTuristas",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "fecha",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Reservas.Reserva",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "verReservas",
 				"outputs": [
@@ -295,57 +359,6 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_idReserva",
-						"type": "uint256"
-					}
-				],
-				"name": "verSererva",
-				"outputs": [
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "nombreLugar",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "totalCobrado",
-								"type": "uint256"
-							},
-							{
-								"internalType": "uint8",
-								"name": "cuposDisponibles",
-								"type": "uint8"
-							},
-							{
-								"internalType": "address",
-								"name": "guiaTuristas",
-								"type": "address"
-							},
-							{
-								"internalType": "uint256",
-								"name": "fecha",
-								"type": "uint256"
-							},
-							{
-								"internalType": "bool",
-								"name": "estado",
-								"type": "bool"
-							}
-						],
-						"internalType": "struct Reservas.Reserva",
-						"name": "",
-						"type": "tuple"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -384,11 +397,11 @@
 			]
 		},
 		"contracts/Reservas.sol": {
-			"keccak256": "0x80c45dff32c7be151b38a5d93744b10ade8d4d08b029c2be212db791cf252f98",
+			"keccak256": "0x474b10758d967178c967e1048b79ae643b4bdfb6331efd1a36d22b0065c28542",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://32099fe54b98547f5a7d8a6075c18590bcc09d93a77f19a74194411d586056c0",
-				"dweb:/ipfs/QmWzS7b83BGTxb4okh4yjYBWhEem9Et8avGQDA9GW93n6z"
+				"bzz-raw://0c8f93ee491fbc048221a2442207c6d13554b3cf30929910e545e82bbde23e5c",
+				"dweb:/ipfs/Qme9VwqyCyKNQpapC5czXkTp9audox5RCGYYZoWpxZj8rs"
 			]
 		},
 		"contracts/Usuarios.sol": {

@@ -134,7 +134,12 @@ contract Reservas {
         return _reservas;
     }
 
-    function verSererva(uint256 _idReserva) public view returns (Reserva memory) {
+    function verReserva(uint256 _idReserva) public view returns (Reserva memory) {
         return reservas[_idReserva];
+    }
+    function eliminarReserva(uint256 _idReserva) public {
+        require(reservas[_idReserva].estado, "Esta reseva no existe");
+        reservas[_idReserva].estado = false;
+        emit eliminarRegistrada(_idReserva, reservas[_idReserva].nombreLugar); 
     }
 }

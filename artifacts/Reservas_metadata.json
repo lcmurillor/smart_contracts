@@ -33,11 +33,17 @@
 					{
 						"indexed": false,
 						"internalType": "string",
-						"name": "nombreLugar",
+						"name": "nombreTursita",
 						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "monto",
+						"type": "uint256"
 					}
 				],
-				"name": "eliminarRegistrada",
+				"name": "pagarReserva",
 				"type": "event"
 			},
 			{
@@ -52,17 +58,11 @@
 					{
 						"indexed": false,
 						"internalType": "string",
-						"name": "nombreTursita",
+						"name": "nombreLugar",
 						"type": "string"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "monto",
-						"type": "uint256"
 					}
 				],
-				"name": "pagarRegistrada",
+				"name": "reservaEliminada",
 				"type": "event"
 			},
 			{
@@ -397,11 +397,11 @@
 			]
 		},
 		"contracts/Reservas.sol": {
-			"keccak256": "0x1e7f53574c64f3a1b6199de0139937a0cc3510c9a3f730c6e453a2214ff71e31",
+			"keccak256": "0x3735d345738078e11046b57f0d131043e693a5770300d27b829acc19bfb8ce98",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://34de2351576cd77668992997d4f5baee45bec661c66a9dbd9f73f034f99493e3",
-				"dweb:/ipfs/QmY2pofMpNZgg63L9oqNyVXamQUcR8JCdKiKbkk9KopvSv"
+				"bzz-raw://a9f1e2289f90fb86c3c532df92a517413bfaab143cf565e48a16b0416fc53239",
+				"dweb:/ipfs/QmQ1PB78YbHnJWFJuMEcbeqqKYB8buDPdec7o2JhbFgk1W"
 			]
 		},
 		"contracts/Usuarios.sol": {

@@ -1,0 +1,265 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_usuariosContrato",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_reservasContrato",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "nombreLugar",
+						"type": "string"
+					}
+				],
+				"name": "ExoneracionRegistrada",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "nombreLugar",
+						"type": "string"
+					}
+				],
+				"name": "ResennaEliminada",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "obtenerDuenno",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					}
+				],
+				"name": "obtenerGuia",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "cuenta",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nombreCompleto",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Usuarios.GuiaTuristas",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_idReserva",
+						"type": "uint256"
+					}
+				],
+				"name": "obtenerReservas",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "nombreLugar",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalCobrado",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint8",
+								"name": "cuposDisponibles",
+								"type": "uint8"
+							},
+							{
+								"internalType": "address",
+								"name": "guiaTuristas",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "fecha",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Reservas.Reserva",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cuenta",
+						"type": "address"
+					}
+				],
+				"name": "obtenerTurista",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "cuenta",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "nombreCompleto",
+								"type": "string"
+							},
+							{
+								"internalType": "uint8",
+								"name": "edad",
+								"type": "uint8"
+							},
+							{
+								"internalType": "bool",
+								"name": "estado",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Usuarios.Turista",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Exoneracion.sol": "Exoneracion"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Exoneracion.sol": {
+			"keccak256": "0x13fc18575e5d68a33c5abdb2f2289885fe0e70f03543161f249abfdc86421c79",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3f44f1303f4848df13127dc1b5238270e2bce5d122f1904f433336f59ddcd2b5",
+				"dweb:/ipfs/QmW2uqN81T5sbHQT5u4GxxkkQePDrquDys2mNs5pFsq4p5"
+			]
+		},
+		"contracts/Lugares.sol": {
+			"keccak256": "0xd621a7ecf325a9b1b56dcbf96e24d3e76cc03f43b06507a8b71beba306cdf13d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://31c198a18c53935da72bbe521b96885cb1f853e729934937d62475bbc566c16e",
+				"dweb:/ipfs/QmfU8gvWzGZY3i9S3dTeA6gZjC3zttVdJw9CfU7vekEFzx"
+			]
+		},
+		"contracts/Reservas.sol": {
+			"keccak256": "0x3735d345738078e11046b57f0d131043e693a5770300d27b829acc19bfb8ce98",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a9f1e2289f90fb86c3c532df92a517413bfaab143cf565e48a16b0416fc53239",
+				"dweb:/ipfs/QmQ1PB78YbHnJWFJuMEcbeqqKYB8buDPdec7o2JhbFgk1W"
+			]
+		},
+		"contracts/Usuarios.sol": {
+			"keccak256": "0xaf900e4e1fd1e8a2b1292940a8fe6cdaf4a08a4a3e78231902d204fc26ff9cdc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1470e966b5fa19f1d98199155f5f414010e3ea78a5f8076f632dd6efe16a138e",
+				"dweb:/ipfs/QmU8wf9ppvQDseSgZkYBLfGStsdXKyy2M9kfrJgA4wQvWG"
+			]
+		}
+	},
+	"version": 1
+}

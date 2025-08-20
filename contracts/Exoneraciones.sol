@@ -11,12 +11,13 @@ contract Exoneraciones {
     Usuarios private usuariosContrato;
     Reservas private reservasContrato;
 
-    string private mensajeExoneracion = "Mucho texto legal";
+    string private mensajeExoneracion;
     uint256 private contadorExoneracion;
 
     mapping(uint256 => Exoneracion) private exoneraciones;
 
     struct Exoneracion {
+        uint256 id;
         uint256 idReseva;
         address[] turistasExonerados;
     }
@@ -26,6 +27,7 @@ contract Exoneraciones {
     constructor(address _usuariosContrato, address _reservasContrato) {
         usuariosContrato = Usuarios(_usuariosContrato);
         reservasContrato = Reservas(_reservasContrato);
+        mensajeExoneracion = "El participante reconoce y acepta que las actividades turisticas ofrecidas por La empresa de gestion de turismo pueden implicar riesgos inherentes, incluyendo pero no limitandose a lesiones fisicas, danos materiales, perdidas economicas o incluso la muerte. Al aceptar este contrato, el participante libera expresamente a La empresa de gestion de turismo, sus representantes, empleados y afiliados de toda responsabilidad civil, penal o administrativa derivada de cualquier incidente ocurrido durante la participacion en dichas actividades, salvo en casos de negligencia grave o dolo comprobado. El participante declara haber sido informado de los riesgos, haberlos comprendido plenamente y asumirlos voluntariamente bajo su propia responsabilidad.";
     }
 
     //Valida que solo los gúias de turistas puedan hacer cambios.
@@ -76,7 +78,7 @@ contract Exoneraciones {
             "Debe ingresar un reserva valida"
         );
         require(_turistas.length > 0, "Debe ingresar al menos un turista");
-        exoneraciones[contadorExoneracion] = Exoneracion(_idReserva, _turistas);
+        exoneraciones[contadorExoneracion] = Exoneracion(contadorExoneracion, _idReserva, _turistas);
         contadorExoneracion++;
         emit ExoneracionRegistrada(contadorExoneracion, _idReserva);
     }
@@ -90,7 +92,6 @@ contract Exoneraciones {
         for (uint256 i = 0; i < contadorExoneracion; i++) {
             _resultado[i] = exoneraciones[i];
         }
-
         return _resultado;
     }
 

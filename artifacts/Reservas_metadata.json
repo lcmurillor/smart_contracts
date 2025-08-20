@@ -282,6 +282,11 @@
 					{
 						"components": [
 							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
 								"internalType": "string",
 								"name": "nombreLugar",
 								"type": "string"
@@ -326,6 +331,11 @@
 				"outputs": [
 					{
 						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
 							{
 								"internalType": "string",
 								"name": "nombreLugar",
@@ -402,11 +412,11 @@
 			]
 		},
 		"contracts/Reservas.sol": {
-			"keccak256": "0x35e29a9b037dc9061e080435818fe152d5e4432a5e03fa6873b5022db302b201",
+			"keccak256": "0xff68d9e00e8a19a2c6b79b1723b93905508575c477957005eed76658e00c1a53",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://75a825040783cb3669d8ba1c5672144e70f8299d875e652a030782253eb47971",
-				"dweb:/ipfs/QmPGvXHQJ5CVVE81Jd19GHDbTptvwmuZ6kfx4hHPwxXmjd"
+				"bzz-raw://527e75611a2f1d5d0e6e11442dba8b626e6b7b64151865cac11695d34978e84a",
+				"dweb:/ipfs/QmTrr1LY1PxSK1rK25pyvECVuW1uPZBb5ELv7J1pCJKWW9"
 			]
 		},
 		"contracts/Usuarios.sol": {

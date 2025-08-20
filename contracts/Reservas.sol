@@ -15,6 +15,7 @@ contract Reservas {
     uint256 private contadorReservas;
 
     struct Reserva {
+        uint256 id;
         string nombreLugar;
         uint256 totalCobrado;
         uint8 cuposDisponibles;
@@ -98,6 +99,7 @@ contract Reservas {
             "Deber ser un guia registrado"
         );
         reservas[contadorReservas] = Reserva(
+            contadorReservas,
             _nombreLugar,
             0,
             obtenerLugar(_nombreLugar).cupos,

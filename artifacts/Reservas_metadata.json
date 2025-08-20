@@ -257,6 +257,11 @@
 						"internalType": "address",
 						"name": "_guiaTuristas",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_fecha",
+						"type": "uint256"
 					}
 				],
 				"name": "registrarReservas",
@@ -397,11 +402,11 @@
 			]
 		},
 		"contracts/Reservas.sol": {
-			"keccak256": "0x3735d345738078e11046b57f0d131043e693a5770300d27b829acc19bfb8ce98",
+			"keccak256": "0x35e29a9b037dc9061e080435818fe152d5e4432a5e03fa6873b5022db302b201",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a9f1e2289f90fb86c3c532df92a517413bfaab143cf565e48a16b0416fc53239",
-				"dweb:/ipfs/QmQ1PB78YbHnJWFJuMEcbeqqKYB8buDPdec7o2JhbFgk1W"
+				"bzz-raw://75a825040783cb3669d8ba1c5672144e70f8299d875e652a030782253eb47971",
+				"dweb:/ipfs/QmPGvXHQJ5CVVE81Jd19GHDbTptvwmuZ6kfx4hHPwxXmjd"
 			]
 		},
 		"contracts/Usuarios.sol": {

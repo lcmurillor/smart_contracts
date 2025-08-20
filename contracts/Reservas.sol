@@ -82,7 +82,8 @@ contract Reservas {
 
     function registrarReservas(
         string memory _nombreLugar,
-        address _guiaTuristas
+        address _guiaTuristas,
+         uint256 _fecha
     ) public soloGuias {
         require(
             bytes(_nombreLugar).length > 0,
@@ -101,7 +102,7 @@ contract Reservas {
             0,
             obtenerLugar(_nombreLugar).cupos,
             obtenerLugar(_nombreLugar).guiaTuristas,
-            block.timestamp,
+            _fecha,
             true
         );
         contadorReservas++;
